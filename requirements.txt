@@ -1,0 +1,9 @@
+openai-whisper @ git+https://github.com/openai/whisper.git
+setuptools-rust
+googletrans~=3.0.0
+torch~=2.2.1
+TTS~=0.22.0
+gtts
+numpy~=1.22.0
+pytube~=15.0.0
+moviepy~=1.0.3
