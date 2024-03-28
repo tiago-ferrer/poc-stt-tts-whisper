@@ -26,7 +26,6 @@ class Transcriber:
                 srt_file.write(f"{segment['text']}\n")
                 srt_file.write("\n")
                 t = segment['text'].replace(".","")
-                print(t)
 
     def format_timestamp(self, seconds):
         hours, remainder = divmod(seconds, 3600)
