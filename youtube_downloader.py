@@ -2,6 +2,9 @@ from pytube import YouTube
 from moviepy.editor import *
 import os
 
+TEMP_VIDEO_MP4 = "temp_video.mp4"
+
+
 class YouTubeDownloader:
     def __init__(self, videos):
         self.videos = videos
@@ -14,13 +17,10 @@ class YouTubeDownloader:
                 # Download the YouTube video
                 youtube = YouTube(url)
                 video = youtube.streams.first()
-                video.download(filename="temp_video.mp4")
-
-                print(f"Video downloaded: {os.path.exists('temp_video.mp4')}")
-                print(f"Current directory: {os.getcwd()}")
+                video.download(filename=TEMP_VIDEO_MP4)
 
                 # Extract audio and save as MP3
-                video_clip = VideoFileClip('temp_video.mp4')
+                video_clip = VideoFileClip(TEMP_VIDEO_MP4)
                 audio_clip = video_clip.audio
                 audio_file_path = f'{name}.mp3'
                 audio_clip.write_audiofile(audio_file_path)
@@ -29,4 +29,4 @@ class YouTubeDownloader:
                 video_clip.close()
                 audio_clip.close()
 
-                print(f'The audio was saved as: {audio_file_path}')
+                os.remove(TEMP_VIDEO_MP4)
