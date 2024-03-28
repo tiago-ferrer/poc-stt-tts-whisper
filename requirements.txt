@@ -7,3 +7,5 @@ gtts
 numpy~=1.22.0
 pytube~=15.0.0
 moviepy~=1.0.3
+google-generativeai
+ipython
